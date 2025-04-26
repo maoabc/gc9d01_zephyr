@@ -4,7 +4,7 @@
  * Copyright (c) 2023 Martin Kiepfer <mrmarteng@teleschirm.org>
  * SPDX-License-Identifier: Apache-2.0
  */
-#define DT_DRV_COMPAT galaxycore_gc9x01x
+#define DT_DRV_COMPAT galaxycore_gc9d01
 
 #include "display_gc9d01.h"
 
@@ -690,8 +690,8 @@ static DEVICE_API(display, gc9x01x_api) = {
 	.set_orientation = gc9x01x_set_orientation,
 };
 
-#define GC9X01X_INIT(inst)                                                                         \
-	GC9X01X_REGS_INIT(inst);                                                                   \
+#define GC9D01_INIT(inst)                                                                         \
+	GC9D01_REGS_INIT(inst);                                                                   \
 	static const struct gc9x01x_config gc9x01x_config_##inst = {                               \
 		.mipi_dev = DEVICE_DT_GET(DT_INST_PARENT(inst)),                                   \
 		.dbi_config = {                                                                    \
@@ -713,4 +713,4 @@ static DEVICE_API(display, gc9x01x_api) = {
 			      &gc9x01x_data_##inst, &gc9x01x_config_##inst, POST_KERNEL,           \
 			      CONFIG_DISPLAY_INIT_PRIORITY, &gc9x01x_api);
 
-DT_INST_FOREACH_STATUS_OKAY(GC9X01X_INIT)
+DT_INST_FOREACH_STATUS_OKAY(GC9D01_INIT)

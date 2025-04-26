@@ -85,7 +85,7 @@ struct gc9x01x_regs {
 	uint8_t framerate[GC9X01X_CMD_FRAMERATE_LEN];
 };
 
-#define GC9X01X_REGS_INIT(inst)                                                                    \
+#define GC9D01_REGS_INIT(inst)                                                                    \
 	static const struct gc9x01x_regs gc9x01x_regs_##inst = {                                   \
 		.pwrctrl1 = DT_INST_PROP(inst, pwrctrl1),                                          \
 		.pwrctrl2 = DT_INST_PROP(inst, pwrctrl2),                                          \

@@ -1,2 +1,2 @@
-rsource "drivers/display/Kconfig"
+rsource "display/Kconfig"
 
