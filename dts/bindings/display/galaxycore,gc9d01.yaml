@@ -1,3 +1,4 @@
+# Copyright (c) 2025 maoabc.
 # Copyright (c) 2023 Mr Beam Lasers GmbH.
 # Copyright (c) 2023 Amrith Venkat Kesavamoorthi <amrith@mr-beam.org>
 # Copyright (c) 2023 Martin Kiepfer <mrmarteng@teleschirm.org>
@@ -6,10 +7,10 @@
 description: |
   GC9D01 display driver.
 
-  This driver implements support for various GC9X01X graphics
+  This driver implements support for various GC9D01 graphics
   controllers and different display sizes. It has been validated
   for following controllers:
-   - GC9101A: (Waveshare 240x240, 1.28inch round lcd display 240x240)
+   - GC9D01: (0.99inch round lcd display 40x160)
 
   Here is an example to define a display interface:
 
@@ -23,10 +24,10 @@ description: |
           dc-gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
           reset-gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
 
-          gc9x01x_lcd: gc9x01x_lcd@0 {
-              compatible = "galaxycore,gc9x01x";
+          gc9d01_lcd: gc9d01_lcd@0 {
+              compatible = "galaxycore,gc9d01";
               reg = <0>;
-              mipi-max-frequency = <DT_FREQ_M(100)>;
+              mipi-max-frequency = <DT_FREQ_M(10)>;
               pixel-format = <PANEL_PIXEL_FORMAT_RGB_565>;
               width = <240>;
               height = <240>;
@@ -67,75 +68,68 @@ properties:
   pwrctrl2:
     type: uint8-array
     default: [
-      0x13
+      0x2c
     ]
     description: Power-control 2 register value
 
   pwrctrl3:
     type: uint8-array
     default: [
-      0x13
+      0x1a
     ]
     description: Power-control 3 register value
 
   pwrctrl4:
     type: uint8-array
     default: [
-      0x22
+      0x28
     ]
     description: Power-control 4 register value
 
   gamma1:
     type: uint8-array
     default: [
-      0x45,
-      0x09,
-      0x08,
-      0x08,
-      0x26,
-      0x2A
+      0x51,
+      0x13,
+      0x0c,
+      0x06,
+      0x00,
+      0x2F
     ]
     description: Gamma correction 1 register values (negative polarity)
 
   gamma2:
     type: uint8-array
     default: [
-      0x43,
-      0x70,
-      0x72,
-      0x36,
-      0x37,
-      0x6F
+      0x3c,
+      0x94,
+      0x4f,
+      0x33,
+      0x34,
+      0xcf
     ]
     description: Gamma correction 3 register values
 
   gamma3:
     type: uint8-array
     default: [
-      0x45,
-      0x09,
-      0x08,
-      0x08,
-      0x26,
-      0x2A
+      0x51,
+      0x13,
+      0x0c,
+      0x06,
+      0x00,
+      0x33
     ]
     description: Gamma correction 3 register values (positive polarity)
 
   gamma4:
     type: uint8-array
     default: [
-      0x43,
-      0x70,
-      0x72,
-      0x36,
-      0x37,
-      0x6F
+      0x4d,
+      0x94,
+      0x4f,
+      0x33,
+      0x34,
+      0xcf
     ]
     description: Gamma correction 4 register values
-
-  framerate:
-    type: uint8-array
-    default: [
-      0x34
-    ]
-    description: Framerate register value
