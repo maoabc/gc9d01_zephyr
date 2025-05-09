@@ -81,7 +81,6 @@ struct gc9d01_regs {
 	uint8_t gamma2[GC9D01_CMD_GAMMA2_LEN];
 	uint8_t gamma3[GC9D01_CMD_GAMMA3_LEN];
 	uint8_t gamma4[GC9D01_CMD_GAMMA4_LEN];
-	uint8_t framerate[GC9D01_CMD_FRAMERATE_LEN];
 };
 
 #define GC9D01_REGS_INIT(inst)                                                                    \
@@ -94,7 +93,6 @@ struct gc9d01_regs {
 		.gamma2 = DT_INST_PROP(inst, gamma2),                                              \
 		.gamma3 = DT_INST_PROP(inst, gamma3),                                              \
 		.gamma4 = DT_INST_PROP(inst, gamma4),                                              \
-		.framerate = DT_INST_PROP(inst, framerate),                                        \
 	};
 
 #endif /* ZEPHYR_DRIVERS_DISPLAY_GC9D01_H_ */
