@@ -29,9 +29,10 @@ description: |
               reg = <0>;
               mipi-max-frequency = <DT_FREQ_M(10)>;
               pixel-format = <PANEL_PIXEL_FORMAT_RGB_565>;
-              width = <240>;
-              height = <240>;
-              display-inversion;
+              width = <40>;
+              height = <160>;
+              orientation = "90";
+              // display-inversion;
           };
       };
   };
