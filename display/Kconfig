@@ -16,6 +16,9 @@ config DISPLAY_INIT_PRIORITY
 	help
 	  Display devices initialization priority.
 
+
+module = gc9d01
+module-str = "gc9d01"
 source "subsys/logging/Kconfig.template.log_config"
 
 # Why can't load? ? ?
