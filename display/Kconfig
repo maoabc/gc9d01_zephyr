@@ -22,6 +22,6 @@ module-str = "gc9d01"
 
 source "subsys/logging/Kconfig.template.log_config"
 
-source "Kconfig.gc9d01"
+rsource "Kconfig.gc9d01"
 
 endif # DISPLAY
