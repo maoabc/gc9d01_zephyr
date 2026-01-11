@@ -19,17 +19,9 @@ config DISPLAY_INIT_PRIORITY
 
 module = gc9d01
 module-str = "gc9d01"
+
 source "subsys/logging/Kconfig.template.log_config"
 
-# Why can't load? ? ?
-#source "Kconfig.gc9d01"
-
-config GC9D01
-	bool "GC9D01 display driver"
-	default y
-	depends on DT_HAS_GALAXYCORE_GC9D01_ENABLED
-	select MIPI_DBI
-	help
-	  Enable driver for GC9D01 display driver.
+source "Kconfig.gc9d01"
 
 endif # DISPLAY
